@@ -1,7 +1,14 @@
 version: '3'
 services:
     api: 
-       build: .
+       image: nxgo/cli
+       volumes: 
+         - ./:/workspace
+       command:  
+          - "/bin/ash"
+          - "nx"
+          - "serve"
+          - "list-api"
     postgres:
         image: postgres:13.1-alpine
         restart: always
