@@ -1,16 +1,11 @@
 version: '3'
 services:
-    api: 
-       image: nxgo/cli
-       volumes: 
-         - ./:/workspace
-       command:  
-          - "/bin/ash"
-          - "nx"
-          - "serve"
-          - "list-api"
-    postgres:
-        image: postgres:13.1-alpine
-        restart: always
-        environment:
-          POSTGRES_PASSWORD: example
+  api:
+    image: nxgo/cli
+
+    command:  ["zsh","nx", "serve", "list-api"]
+  postgres:
+    image: postgres:13.1-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
