@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@go-list/geo": ["libs/geo/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
