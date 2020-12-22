@@ -6,10 +6,15 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_kubernetes_cluster" "cluster" {
   location = "West Europe"
   name = "main-cluster"
-  resource_group_name = ""
+  resource_group_name = azurerm_resource_group.rg.name
+
   default_node_pool {
-    name = ""
-    vm_size = ""
+    name = "baseload"
+    vm_size = "Standard_B2ms"
+    node_count = 2
   }
-  dns_prefix = ""
+  dns_prefix = "gold-ochsen"
+  identity {
+    type = "SystemAssigned"
+  }
 }
